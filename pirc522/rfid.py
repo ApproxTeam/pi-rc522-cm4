@@ -225,9 +225,9 @@ class RFID(object):
         (error, back_data, back_bits) = self.card_write(self.mode_transrec, [req_mode, ])
 
         if error or (back_bits != 0x10):
-            return (True, None)
+            return (True, None, None)
 
-        return (False, back_bits)
+        return (False, back_bits, back_data)
 
     def anticoll(self):
         """
@@ -254,7 +254,7 @@ class RFID(object):
             else:
                 error = True
 
-        return (error, back_data)
+        return (error, back_data, back_data)
 
     def calculate_crc(self, data):
         self.clear_bitmask(0x05, 0x04)
