@@ -24,11 +24,11 @@ print("Starting")
 while run:
     rdr.wait_for_tag()
 
-    (error, data) = rdr.request()
+    (error, data, back_data) = rdr.request()
     if not error:
         print("\nDetected: " + format(data, "02x"))
 
-    (error, uid) = rdr.anticoll()
+    (error, uid, back_data) = rdr.anticoll()
     if not error:
         print("Card read UID: "+str(uid[0])+","+str(uid[1])+","+str(uid[2])+","+str(uid[3]))
 
