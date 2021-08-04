@@ -223,7 +223,7 @@ class RFID(object):
         (error, back_data, back_bits) = self.card_write(self.mode_transrec, [req_mode, ])
 
         if error or (back_bits != 0x10):
-            return (True, None, None)
+            return (True, back_data, back_bits)
 
         return (False, back_bits, back_data)
 
