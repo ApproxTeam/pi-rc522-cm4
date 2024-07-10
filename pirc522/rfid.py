@@ -10,7 +10,7 @@ try:
     SPIClass = spidev.SpiDev
     def_pin_rst = 22
     def_pin_irq = 18
-    def_pin_mode = GPIO.BOARD
+    def_pin_mode = GPIO.BCM
 except ImportError:
     # If they failed, try with Beaglebone
     import Adafruit_BBIO.SPI as SPI
